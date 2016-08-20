@@ -1,3 +1,32 @@
+https://docs.openshift.com/online/getting_started/beyond_the_basics.html#btb-installing-the-openshift-cli
+
+OC Terminal:
+https://console.hackathon.openshift.com/console/command-line
+
+Run:
+1.  oc login https://api.hackathon.openshift.com --token=293chOrC7Jw8Qvm7kKIKXCoVc6EOGzs-F9qUUvrVlkM
+2.  oc project solitaire
+
+Also:
+1.  oc get services
+2.  oc get routes
+
+route HOST/PORT:
+route-solitaire.0ec9.hackathon.openshiftapps.com
+________________________________________________________________
+
+oc delete all --all
+oc get pvc
+oc delete pvc mongodb
+
+oc new-app https://github.com/jsa41394/nodejs-ex --name nodejs-mongodb-example
+
+oc expose service/nodejs-mongodb-example
+
+oc set env dc/nodejs-mongodb-example MONGO_URL='mongodb://jsa41394:qwertyjsa41394@172.30.227.255:27017/sampledb'
+
+________________________________________________________________
+
 Node.js sample app on OpenShift!
 -----------------
 
