@@ -1,4 +1,5 @@
-https://docs.openshift.com/online/getting_started/beyond_the_basics.html#btb-installing-the-openshift-cli
+Main page:
+https://console.hackathon.openshift.com/console/project/solitaire/overview
 
 OC Terminal:
 https://console.hackathon.openshift.com/console/command-line
