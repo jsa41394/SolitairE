@@ -10,6 +10,7 @@ Run:
 Also:
 1.  oc get services
 2.  oc get routes
+Open in browser: http://nodejs-mongodb-example-solitaire.0ec9.hackathon.openshiftapps.com/
 
 route HOST/PORT:
 route-solitaire.0ec9.hackathon.openshiftapps.com
@@ -23,7 +24,19 @@ oc new-app https://github.com/jsa41394/nodejs-ex --name nodejs-mongodb-example
 
 oc expose service/nodejs-mongodb-example
 
-oc set env dc/nodejs-mongodb-example MONGO_URL='mongodb://jsa41394:qwertyjsa41394@172.30.227.255:27017/sampledb'
+.. copy cluster IP from: oc get services
+
+oc set env dc/nodejs-mongodb-example MONGO_URL='mongodb://jsa41394:qwertyjsa41394@172.30.135.160:27017/sampledb'
+________________________________________________________________
+
+oc delete all --all
+oc delete pvc mongodb
+
+oc new-app https://github.com/jsa41394/nodejs-ex --name nodejs-mongodb-example
+
+oc new-app mongodb-persistent -p MONGODB_USER=admin,MONGODB_PASSWORD=secret,MONGODB_ADMIN_PASSWORD=super-secret
+
+oc set env dc/nodejs-mongodb-example MONGO_URL='mongodb://admin:secret@172.30.167.117:27017/sampledb'
 
 ________________________________________________________________
 
