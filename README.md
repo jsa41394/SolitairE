@@ -1,4 +1,4 @@
-Main page:
+Main page: 
 https://console.hackathon.openshift.com/console/project/solitaire/overview
 
 OC Terminal:
