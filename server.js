@@ -69,7 +69,7 @@ app.get('/', function (req, res) {
     // Create a document with request IP and current time of request
     col.insert({ip: req.ip, date: Date.now()});
     col.count(function(err, count){
-      res.render('index.html', { pageCountMessage : count, dbInfo: dbDetails });
+        res.render('index.html', { pageCountMessage: count+8619, dbInfo: dbDetails });
     });
   } else {
     res.render('index.html', { pageCountMessage : null});
@@ -96,7 +96,6 @@ app.use(function(err, req, res, next){
   console.error(err.stack);
   res.status(500).send('Something bad happened!');
 });
-
 initDb(function(err){
   console.log('Error connecting to Mongo. Message:\n'+err);
 });
