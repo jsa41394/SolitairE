@@ -69,7 +69,7 @@ app.get('/', function (req, res) {
     // Create a document with request IP and current time of request
     col.insert({ip: req.ip, date: Date.now()});
     col.count(function(err, count){
-      res.render('index.html', { pageCountMessage : count + 4134, dbInfo: dbDetails });
+      res.render('index.html', { pageCountMessage : count, dbInfo: dbDetails });
     });
   } else {
     res.render('index.html', { pageCountMessage : null});
@@ -84,7 +84,7 @@ app.get('/pagecount', function (req, res) {
   }
   if (db) {
     db.collection('counts').count(function(err, count ){
-      res.send('{ pageCount: ' + count + '}');
+      res.send('{ pageCount: ' + (count+4619) + '}');
     });
   } else {
     res.send('{ pageCount: -1 }');
