@@ -4,7 +4,70 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <title>SolitairE</title>
+  <!--<link rel="stylesheet" type="text/css" href="style.css">-->
 
+</head>
+<body>
+
+<section class='container'>
+          <hgroup>
+            <h1>Welcome to SolitairE on OpenShift</h1>
+          </hgroup>
+
+        <div class="row">
+          <section class='col-xs-12 col-sm-6 col-md-6'>
+            <h2>Request information</h2>
+            <p>
+                Page view count:
+                <% if (pageCountMessage) { %>
+                <span class="code" id="count-value"><%=pageCountMessage%></span>
+            </p>
+            <div class="code">
+                <h3>DB Connection Info:</h3>
+                <table style='margin-left: 20px'>
+                    <tr><td>Type:</td><td><%= dbInfo.type %></td></tr>
+                    <tr><td>URL:</td><td><%= dbInfo.url %></td></tr>
+                </table>
+            </div>
+            <% } else { %>
+            <span class="code" id="count-value">No database configured</span>
+            </p>
+            <%} %>
+            <section>
+              <h2>How to use this example application</h2>
+                <p>For instructions on how to use this application with OpenShift, start by reading the 
+                <a href="http://docs.openshift.org/latest/dev_guide/templates.html#using-the-quickstart-templates">Developer Guide</a>.</p>
+
+              <h2>Deploying code changes</h2>
+                <p>
+                  The source code for this application is available to be forked from the 
+                    <a href="https://github.com/jsa41394/SolitairE">SolitairE GitHub repository</a>.<br />
+                  git config --global credential.helper cache
+                </p>
+            </section>
+          </section>
+          <section class="col-xs-12 col-sm-6 col-md-6">
+                <h2>Development Resources</h2>
+                  <ul>
+                      <li><a href="https://docs.openshift.com/online/getting_started/basic_walkthrough.html">Basic Walkthrough</a></li>
+                      <li><a href="https://docs.openshift.com/online/getting_started/beyond_the_basics.html">Beyond theBbasics</a></li>
+                  </ul>
+                  <ul>
+                    <li><a href="http://docs.openshift.org/latest/dev_guide/overview.html">Developer Guide</a></li>
+                    <li><a href="http://docs.openshift.org/latest/welcome/index.html">OpenShift Documentation</a></li>
+                    <li><a href="https://github.com/openshift/origin">Openshift Origin GitHub</a></li>
+                    <li><a href="https://github.com/openshift/source-to-image">Source To Image GitHub</a></li>
+                    <li><a href="http://docs.openshift.org/latest/using_images/s2i_images/nodejs.html">Getting Started with Node.js on OpenShift</a></li>
+                    <li><a href="http://stackoverflow.com/questions/tagged/openshift">Stack Overflow questions for OpenShift</a></li>
+                    <li><a href="http://git-scm.com/documentation">Git documentation</a></li>
+                  </ul>                
+          </section>
+        </div>
+
+        <footer>
+          <div class="logo"><a href="https://www.openshift.com/"></a></div>
+        </footer>
+</section>
 
 <style>
 
@@ -208,71 +271,7 @@ pre {
   overflow: auto;
   font-family: Menlo,Monaco,"Liberation Mono",Consolas,monospace !important;
 }
-
 </style>
 
-</head>
-<body>
-
-<section class='container'>
-          <hgroup>
-            <h1>Welcome to SolitairE on OpenShift</h1>
-          </hgroup>
-
-
-        <div class="row">
-          <section class='col-xs-12 col-sm-6 col-md-6'>
-            <h2>Request information</h2>
-            <p>
-                Page view count:
-                <% if (pageCountMessage) { %>
-                <span class="code" id="count-value"><%=pageCountMessage%></span>
-            </p>
-            <div class="code">
-                <h3>DB Connection Info:</h3>
-                <table style='margin-left: 20px'>
-                    <tr><td>Type:</td><td><%= dbInfo.type %></td></tr>
-                    <tr><td>URL:</td><td><%= dbInfo.url %></td></tr>
-                </table>
-            </div>
-            <% } else { %>
-            <span class="code" id="count-value">No database configured</span>
-            </p>
-            <%} %>
-            <section>
-              <h2>How to use this example application</h2>
-                <p>For instructions on how to use this application with OpenShift, start by reading the 
-                <a href="http://docs.openshift.org/latest/dev_guide/templates.html#using-the-quickstart-templates">Developer Guide</a>.</p>
-
-              <h2>Deploying code changes</h2>
-                <p>
-                  The source code for this application is available to be forked from the 
-                    <a href="https://github.com/jsa41394/SolitairE">SolitairE GitHub repository</a>.<br />
-                  git config --global credential.helper cache
-                </p>
-            </section>
-          </section>
-          <section class="col-xs-12 col-sm-6 col-md-6">
-                <h2>Development Resources</h2>
-                  <ul>
-                      <li><a href="https://docs.openshift.com/online/getting_started/basic_walkthrough.html">Basic Walkthrough</a></li>
-                      <li><a href="https://docs.openshift.com/online/getting_started/beyond_the_basics.html">Beyond theBbasics</a></li>
-                  </ul>
-                  <ul>
-                    <li><a href="http://docs.openshift.org/latest/dev_guide/overview.html">Developer Guide</a></li>
-                    <li><a href="http://docs.openshift.org/latest/welcome/index.html">OpenShift Documentation</a></li>
-                    <li><a href="https://github.com/openshift/origin">Openshift Origin GitHub</a></li>
-                    <li><a href="https://github.com/openshift/source-to-image">Source To Image GitHub</a></li>
-                    <li><a href="http://docs.openshift.org/latest/using_images/s2i_images/nodejs.html">Getting Started with Node.js on OpenShift</a></li>
-                    <li><a href="http://stackoverflow.com/questions/tagged/openshift">Stack Overflow questions for OpenShift</a></li>
-                    <li><a href="http://git-scm.com/documentation">Git documentation</a></li>
-                  </ul>                
-          </section>
-        </div>
-
-        <footer>
-          <div class="logo"><a href="https://www.openshift.com/"></a></div>
-        </footer>
-</section>
 </body>
 </html>
