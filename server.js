@@ -65,7 +65,7 @@ app.get('/', function (req, res) {
     initDb(function(err){});
   }
   if (db) {
-    var data = req.data;
+      var data = "[1, 0, 1]";//req.data;
     var col = db.collection('counts');
     // Create a document with request IP and current time of request
     col.insert({ip: req.ip, date: Date.now()});
@@ -81,6 +81,7 @@ app.get('/', function (req, res) {
   }
 });
 
+/*
 app.get('/pagecount', function (req, res) {
   // try to initialize the db on every request if it's not already
   // initialized.
@@ -94,7 +95,7 @@ app.get('/pagecount', function (req, res) {
   } else {
     res.send('{ pageCount: -1 }');
   }
-});
+});*/
 
 // error handling
 app.use(function(err, req, res, next){
