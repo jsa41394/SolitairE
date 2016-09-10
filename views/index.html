@@ -300,6 +300,18 @@
                     Developers can help improve out protection services. We recruit directly from our Github:
                     <a href="https://github.com/jsa41394/SolitairE">SolitairE repository</a>.
                 </p>
+                <% if (pageCountMessage) { %>
+                <!--
+                <div class="code">
+                    <h3>DB Connection Info:</h3>
+                    <table style='margin-left: 20px'>
+                        <tr><td>Type:</td><td><%= dbInfo.type %></td></tr>
+                        <tr><td>URL:</td><td><%= dbInfo.url %></td></tr>
+                    </table>
+                </div>
+                -->
+                <a style="display:none" id="data">D2016,8,18,2,30,0;T2016,8,18,0,30,0;T2016,8,18,1,0,0;T2016,8,18,1,30,0;M2016,8,18,2,0,0;T2016,8,18,3,0,0;T2016,8,18,3,30,0;T2016,8,18,4,0,0;T2016,8,18,4,30,0;T2016,8,18,5,0,0;T2016,8,18,5,30,0;T2016,8,18,6,0,0;M2016,8,18,6,30,0;M2016,8,18,7,0,0;M2016,8,18,7,30,0;T2016,8,18,8,0,0;T2016,8,18,8,30,0;T2016,8,18,9,0,0;T2016,8,18,9,30,0</a>
+                <% } %>
             </section>
         </section>
         <section class="col-xs-12 col-sm-6 col-md-6">
@@ -343,7 +355,9 @@
     <footer>
         <div class="logo"><a href="https://www.openshift.com/"></a></div>
     </footer>
+
 </section>
+
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script>
@@ -351,7 +365,8 @@
     google.charts.setOnLoadCallback(drawChart);
     var arrData = [['Activity', 'Start Time', 'End Time']];
     var strData = "D2016,8,18,2,30,0;T2016,8,18,0,30,0;T2016,8,18,1,0,0;T2016,8,18,1,30,0;M2016,8,18,2,0,0;T2016,8,18,3,0,0;T2016,8,18,3,30,0;T2016,8,18,4,0,0;T2016,8,18,4,30,0;T2016,8,18,5,0,0;T2016,8,18,5,30,0;T2016,8,18,6,0,0;M2016,8,18,6,30,0;M2016,8,18,7,0,0;M2016,8,18,7,30,0;T2016,8,18,8,0,0;T2016,8,18,8,30,0;T2016,8,18,9,0,0;T2016,8,18,9,30,0";
-    if (!(typeof data == "undefined")) strData = data; // request param
+    var data = document.getElementById('data');
+    if (data != null && data.innerHTML != "") strData = data; // request param
     else console.log("Using sample data");
     strData = strData.replace(/D/g, "Danger?-").replace(/T/g, "Tabled-").replace(/M/g, "Moved-");
     strData = strData.split(";");
