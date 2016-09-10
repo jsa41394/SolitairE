@@ -4,6 +4,8 @@ https://console.hackathon.openshift.com/console/project/solitaire/overview
 OC Terminal:
 https://console.hackathon.openshift.com/console/command-line
 
+git config --global credential.helper cache
+
 Run:
 1.  oc login https://api.hackathon.openshift.com --token=293chOrC7Jw8Qvm7kKIKXCoVc6EOGzs-F9qUUvrVlkM
 2.  oc project solitaire
