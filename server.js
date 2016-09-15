@@ -67,7 +67,6 @@ app.get('/', function (req, res) {
   if (db) {
     var data = req.query['data'];
     var rand = req.query['rand'];
-    var test = req.query['test'];
     //data = "D2016,8,18,2,30,0;T2016,8,18,0,30,0;T2016,8,18,1,0,0;T2016,8,18,1,30,0;M2016,8,18,2,0,0;T2016,8,18,3,0,0;T2016,8,18,3,30,0;T2016,8,18,4,0,0;T2016,8,18,4,30,0;T2016,8,18,5,0,0;T2016,8,18,5,30,0;T2016,8,18,6,0,0;M2016,8,18,6,30,0;M2016,8,18,7,0,0;M2016,8,18,7,30,0;T2016,8,18,8,0,0;T2016,8,18,8,30,0;T2016,8,18,9,0,0;T2016,8,18,9,30,0";
     //rand = "6ionafoa28gvh";
     var col = db.collection('counts');
@@ -76,7 +75,7 @@ app.get('/', function (req, res) {
     //col.insert({ip: req.ip, date: Date.now(), data: data, rand: rand});
     col.count(function (err, count) {
         res.render('index.html', {
-            pageCountMessage: count + 8619 + test,
+            pageCountMessage: count + 8619,
             dbInfo: dbDetails,
             data: data
         });
