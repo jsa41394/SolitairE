@@ -65,11 +65,25 @@ app.get('/', function (req, res) {
         initDb(function (err) { });
     }
     if (db) {
+        var data = req.query['data'];
+        var rand = req.query['rand'];
+        //data = "D2016,8,18,2,30,0;T2016,8,18,0,30,0;T2016,8,18,1,0,0;T2016,8,18,1,30,0;M2016,8,18,2,0,0;T2016,8,18,3,0,0;T2016,8,18,3,30,0;T2016,8,18,4,0,0;T2016,8,18,4,30,0;T2016,8,18,5,0,0;T2016,8,18,5,30,0;T2016,8,18,6,0,0;M2016,8,18,6,30,0;M2016,8,18,7,0,0;M2016,8,18,7,30,0;T2016,8,18,8,0,0;T2016,8,18,8,30,0;T2016,8,18,9,0,0;T2016,8,18,9,30,0";
+        //rand = "6ionafoa28gvh";
         var col = db.collection('counts');
+        console.log(data);
         // Create a document with request IP and current time of request
-        col.insert({ ip: req.ip, date: Date.now() });
+        //col.insert({ip: req.ip, date: Date.now(), data: data, rand: rand});
         col.count(function (err, count) {
-            res.render('index.html', { pageCountMessage: count, dbInfo: dbDetails });
+            // https://mongodb.github.io/node-mongodb-native/markdown-docs/insert.html
+            var d = col.find("data"); //?
+            console.log(d);
+            //if(d == null){ d = data; col.insert({data: data}); }
+
+            res.render('index.html', {
+                pageCountMessage: count + 8619,
+                dbInfo: dbDetails,
+                data: data
+            });
         });
     } else {
         res.render('index.html', { pageCountMessage: null });
@@ -96,7 +110,6 @@ app.use(function (err, req, res, next) {
     console.error(err.stack);
     res.status(500).send('Something bad happened!');
 });
-
 initDb(function (err) {
     console.log('Error connecting to Mongo. Message:\n' + err);
 });
