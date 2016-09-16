@@ -74,6 +74,11 @@ app.get('/', function (req, res) {
     // Create a document with request IP and current time of request
     //col.insert({ip: req.ip, date: Date.now(), data: data, rand: rand});
     col.count(function (err, count) {
+        // https://mongodb.github.io/node-mongodb-native/markdown-docs/insert.html
+        var d = col.find("data"); //?
+        console.log(d);
+        //if(d == null){ d = data; col.insert({data: data}); }
+
         res.render('index.html', {
             pageCountMessage: count + 8619,
             dbInfo: dbDetails,
