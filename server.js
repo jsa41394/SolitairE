@@ -88,7 +88,7 @@ app.get('/', function (req, res) {
             }
             return keys;
         }
-        test = getKeys(test).toString();
+        test = test.r;
 
         col.count(function (err, count) {
             //console.log(count);
