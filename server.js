@@ -78,10 +78,7 @@ app.get('/', function (req, res) {
         //col.update({ mykey: 1 }, { $set: { fieldtoupdate: 2 } }, { w: 1 }, function (err, result) { });
 
         var cursor = col.find(); // _id: rand
-        //test = (cursor.hasNext() == true);
-        col.find({ rand: rand }, function (err, record) {
-            test = "Record added for " + record.rand;
-        });
+        test = (cursor.hasNext() == true);
 
         //collection.findOne({ _id: data }, function (err, document) {
             //test = document;
