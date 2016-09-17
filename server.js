@@ -80,7 +80,7 @@ app.get('/', function (req, res) {
         });
         */
         var cursor = col.find({ id: rand });
-        test = tojson(cursor.next());
+        test = cursor.next().toArray().toString();
         //test = test.r;
 
         col.count(function (err, count) {
