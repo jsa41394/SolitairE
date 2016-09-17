@@ -80,7 +80,7 @@ app.get('/', function (req, res) {
         });
         
         var cursor = col.find({ id: rand });.next()
-        test = Object.values(cursor).toString(); //
+        test = Object.values(cursor).toString(); // Object.keys(cursor).toString() + "-" + 
 
         //var d = collection.findOne({ id: rand }, function (err, item) { });
         //test = d;
