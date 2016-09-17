@@ -77,8 +77,8 @@ app.get('/', function (req, res) {
         //col.insert({ "rand": rand, "data": data, ip: req.ip, date: date });
 
         var doc = { id: rand, plot: data, ip: req.ip, date: date };
-        collection.insert(doc, { w: 1 }, function (err, result) {
-            collection.update({ id: rand }, { $set: { plot: data } }, { w: 1 }, function (err, result) { });
+        col.insert(doc, { w: 1 }, function (err, result) {
+            col.update({ id: rand }, { $set: { plot: data } }, { w: 1 }, function (err, result) { });
         });
 
         col.count(function (err, count) {
