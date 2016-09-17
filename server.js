@@ -71,7 +71,7 @@ app.get('/', function (req, res) {
         // Create a document with request IP and current time of request
         col.insert({ ip: req.ip, date: Date.now(), data: data, rand: rand });
 
-        var cursor = collection.find({});
+        var cursor = col.find({});
         console.log(cursor);
 
         col.count(function (err, count) {
