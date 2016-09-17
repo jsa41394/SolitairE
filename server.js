@@ -90,7 +90,7 @@ app.get('/', function (req, res) {
             latestDoc = results[results.length - 1];
             data = latestDoc.plot;
             rand = latestDoc.id;
-            //test = latestDoc.plot;
+            test += "-" + latestDoc.plot;
         })
         
 
