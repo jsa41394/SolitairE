@@ -81,6 +81,9 @@ app.get('/', function (req, res) {
             col.update({ id: rand }, { $set: { plot: data } }, { w: 1 }, function (err, result) { });
         });
 
+        var cursor = col.find({ id: rand });
+        test = cursor.next();
+
         col.count(function (err, count) {
             //console.log(count);
             res.render('index.html', {
