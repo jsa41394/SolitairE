@@ -73,7 +73,7 @@ app.get('/', function (req, res) {
         col.insert({ ip: req.ip, date: Date.now(), data: data, rand: rand });
 
         collection.findOne({ _id: doc_id }, function (err, document) {
-            test = document;
+            //test = document;
         });
 
         col.count(function (err, count) {
