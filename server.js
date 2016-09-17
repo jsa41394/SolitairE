@@ -76,15 +76,15 @@ app.get('/', function (req, res) {
 
         test = "'" + data + "'";
         
-        // update data if request param found
-        if (data != "") {
+        // update with new data if request param found
+        if (data != undefined) {
             var doc = { id: rand, plot: data, ip: req.ip, date: date };
             col.insert(doc, { w: 1 }, function (err, result) {
                 col.update({ id: rand }, { $set: { plot: data } }, { w: 1 }, function (err, result) { });
             });
         }
         
-        // retrieve data
+        // retrieve old (or just updated) data - check remotely
         var latestDoc;
         col.find().toArray(function (err, results) {
             latestDoc = results[results.length - 1];
