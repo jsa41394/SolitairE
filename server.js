@@ -71,10 +71,12 @@ app.get('/', function (req, res) {
         var col = db.collection('counts');
         var test = "123";
         // Create a document with request IP and current time of request
-        col.insert({ rand: rand, data: data, ip: req.ip, date: date });
+        col.insert({ rand: rand, data: data, ip: req.ip, date: date }, function (err, record) {
+            test = "Record added for " + record.rand;
+        });
 
         var cursor = col.find(); // _id: rand
-        test = (cursor.hasNext() == true);
+        //test = (cursor.hasNext() == true);
         //col.find({ rand: rand }, function (err, record) {
             //test = "Record added for " + record.rand;
         //});
