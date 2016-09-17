@@ -69,23 +69,11 @@ app.get('/', function (req, res) {
         var rand = req.query['rand'];
         var col = db.collection('counts');
         // Create a document with request IP and current time of request
-        //col.insert({ ip: req.ip, date: Date.now(), data: data, rand: rand });
+        col.insert({ ip: req.ip, date: Date.now(), data: data, rand: rand });
 
-        col.findAndModify(
-          {data: data}, // query
-          [],  // sort order
-          {$set: {data: data}}, // replacement, replaces only the field "hi"
-          {}, // options
-          function(err, object) {
-              if (err){
-                  console.warn(err.message);  // returns error if no matching object found
-              }else{
-                  console.dir(object);
-              }
-          });
-        });
 
         col.count(function (err, count) {
+            console.log(count);
             res.render('index.html', {
                 pageCountMessage: count + 8619,
                 dbInfo: dbDetails,
