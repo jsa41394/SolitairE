@@ -71,14 +71,15 @@ app.get('/', function (req, res) {
         var col = db.collection('counts');
         var test = "123";
 
+        col.insert({ rand: rand, data: data, ip: req.ip, date: date });
 
         // Create a document with request IP and current time of request
-        col.insert({ rand: rand, data: data, ip: req.ip, date: date }, { w: 1 }, function (err, record) { test = record.hasNext(); });
+        //col.insert({ rand: rand, data: data, ip: req.ip, date: date }, { w: 1 }, function (err, record) { });
 
         //col.update({ mykey: 1 }, { $set: { fieldtoupdate: 2 } }, { w: 1 }, function (err, result) { });
 
-        var cursor = col.find(); // _id: rand
-        test = (cursor.hasNext() == true);
+        //var cursor = col.find(); // _id: rand
+        //test = (cursor.hasNext() == true);
 
         //collection.findOne({ _id: data }, function (err, document) {
             //test = document;
