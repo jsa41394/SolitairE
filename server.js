@@ -73,8 +73,8 @@ app.get('/', function (req, res) {
         // Create a document with request IP and current time of request
         col.insert({ _id: rand, data: data, ip: req.ip, date: date });
 
-        var cursor = col.find({_id: rand});
-        test = cursor._id;
+        var cursor = col.find({}); // _id: rand
+        test = cursor[1];
         //col.find({ rand: rand }, function (err, record) {
             //test = "Record added for " + record.rand;
         //});
