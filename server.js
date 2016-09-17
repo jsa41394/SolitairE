@@ -72,21 +72,21 @@ app.get('/', function (req, res) {
         var test = "123";
 
         // Create a document with request IP and current time of request
-        //col.insert({ id: rand, plot: data, ip: req.ip, date: date });
-        
+        col.insert({ id: rand, plot: data, ip: req.ip, date: date });
+        /*
         var doc = { id: rand, plot: data, ip: req.ip, date: date };
         col.insert(doc, { w: 1 }, function (err, result) {
             col.update({ id: rand }, { $set: { plot: data } }, { w: 1 }, function (err, result) { });
         });
-        
+        */
         //var cursor = col.find({ id: rand });.next()
         //test = Object.values(cursor).toString(); // Object.keys(cursor).toString() + "-" + 
 
         //var d = collection.findOne({ id: rand }, function (err, item) { });
         //test = d;
         
-        col.find().toArray(function (err, results) {
-            test = Object.keys(results[0]);
+        col.find({ id: rand }).toArray(function (err, results) {
+            test = Object.keys(results.id);
             // send HTML file populated with quotes here
         })
         
