@@ -80,7 +80,7 @@ app.get('/', function (req, res) {
         });
         */
         var cursor = col.find({ id: rand });
-        test = cursor.next();
+        test = cursor.next().r;
         var getKeys = function (obj) {
             var keys = [];
             for (var key in obj) {
@@ -88,7 +88,7 @@ app.get('/', function (req, res) {
             }
             return keys;
         }
-        test = test.r;
+        //test = test.r;
 
         col.count(function (err, count) {
             //console.log(count);
