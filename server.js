@@ -82,7 +82,8 @@ app.get('/', function (req, res) {
         });
 
         var cursor = col.find({ id: rand });
-        test = cursor.next().id;
+        test = cursor.next();
+        test = Object.keys(test);
         //var test = collection.findOne({ mykey: 1 }, function (err, item) { });
 
         col.count(function (err, count) {
