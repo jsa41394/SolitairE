@@ -86,7 +86,7 @@ app.get('/', function (req, res) {
         
         // retrieve old (or just updated) data - check remotely
         var latestDoc;
-        col.find().toArray(function (err, results) {
+        col.find({ id: rand }).toArray(function (err, results) {
             latestDoc = results[results.length - 1];
             data = latestDoc.plot;
             rand = latestDoc.id;
