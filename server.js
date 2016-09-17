@@ -76,9 +76,9 @@ app.get('/', function (req, res) {
         // Create a document with request IP and current time of request
         //col.insert({ "rand": rand, "data": data, ip: req.ip, date: date });
 
-        var doc = { "rand": rand, "data": data, ip: req.ip, date: date };
+        var doc = { id: rand, plot: data, ip: req.ip, date: date };
         collection.insert(doc, { w: 1 }, function (err, result) {
-            collection.update({ "rand": rand }, { $set: { "data": data } }, { w: 1 }, function (err, result) { });
+            collection.update({ id: rand }, { $set: { plot: data } }, { w: 1 }, function (err, result) { });
         });
 
         col.count(function (err, count) {
