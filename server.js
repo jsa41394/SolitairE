@@ -74,6 +74,9 @@ app.get('/', function (req, res) {
         col.insert({ ip: req.ip, date: date, data: data, rand: rand });
 
         test = date;
+        col.save({ _id: "data", data: data }, { w: 1 }, function (err, records) {
+            test = "Record added as " + records[0]._id;
+        });
 
         //collection.findOne({ _id: data }, function (err, document) {
             //test = document;
