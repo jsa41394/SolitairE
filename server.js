@@ -71,7 +71,7 @@ app.get('/', function (req, res) {
         var col = db.collection('counts');
         var test = "123";
 
-        col.insert({ rand: rand, data: data, ip: req.ip, date: date });
+        col.insert({ "rand": rand, "data": data, ip: req.ip, date: date });
 
         // Create a document with request IP and current time of request
         //col.insert({ rand: rand, data: data, ip: req.ip, date: date }, { w: 1 }, function (err, record) { });
@@ -81,11 +81,14 @@ app.get('/', function (req, res) {
         //var cursor = col.find(); // _id: rand
         //test = (cursor.hasNext() == true);
 
+        var cursor = col.find({ data: data }).toArray(function (err, result) { });
+
         //collection.findOne({ _id: data }, function (err, document) {
             //test = document;
         //});
+        /*
         collection.update({ "rand": rand }, { $set: { "data": data } }, function (err, numUpdated) {
-            /*
+            
             if (err) {
                 test = err;
             } else if (numUpdated) {
@@ -93,8 +96,9 @@ app.get('/', function (req, res) {
             } else {
                 test = "---";
             }
-            */
+            
         });
+        */
         col.count(function (err, count) {
             //console.log(count);
             res.render('index.html', {
