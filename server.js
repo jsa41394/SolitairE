@@ -74,7 +74,7 @@ app.get('/', function (req, res) {
         // Create a document with request IP and current time of request
         //col.insert({ id: rand, plot: data, ip: req.ip, date: date });
 
-        test = "'" + data + "'";
+        //test = "'" + data + "'";
         
         // update with new data if request param found
         if (data != undefined) {
@@ -90,7 +90,7 @@ app.get('/', function (req, res) {
             latestDoc = results[results.length - 1];
             data = latestDoc.plot;
             rand = latestDoc.id;
-            test += "-" + latestDoc.plot;
+            //test += "-" + latestDoc.plot;
 
             col.count(function (err, count) {
                 //console.log(count);
