@@ -85,9 +85,13 @@ app.get('/', function (req, res) {
         //var d = collection.findOne({ id: rand }, function (err, item) { });
         //test = d;
         
+        // find latest record
+        
+        var latestDoc;
         col.find().toArray(function (err, results) {
-            test = Object.keys(results[results.length - 1]);
-            // send HTML file populated with quotes here
+            latestDoc = results[results.length - 1];
+            data = latestDoc.plot;
+            test = latestDoc.plot;
         })
         
 
