@@ -68,6 +68,7 @@ app.get('/', function (req, res) {
         var data = req.query['data'];
         var rand = req.query['rand'];
         var col = db.collection('counts');
+        var test = "123";
         // Create a document with request IP and current time of request
         col.insert({ ip: req.ip, date: Date.now(), data: data, rand: rand });
 
