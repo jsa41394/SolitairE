@@ -79,8 +79,8 @@ app.get('/', function (req, res) {
             col.update({ id: rand }, { $set: { plot: data } }, { w: 1 }, function (err, result) { });
         });
         */
-        var cursor = col.find({ id: rand });
-        test = Object.keys(cursor.next());
+        var cursor = col.find({ id: rand });.next()
+        test = Object.keys(cursor).toString() + "-" + Object.values(cursor).toString();
 
         //var d = collection.findOne({ id: rand }, function (err, item) { });
         //test = d;
