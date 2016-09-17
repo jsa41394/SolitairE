@@ -84,12 +84,12 @@ app.get('/', function (req, res) {
 
         //var d = collection.findOne({ id: rand }, function (err, item) { });
         //test = d;
-        /*
-        db.collection('quotes').find().toArray(function (err, results) {
-            console.log(results)
+        
+        db.collection('counts').find().toArray(function (err, results) {
+            test = results;
             // send HTML file populated with quotes here
         })
-        */
+        
 
         col.count(function (err, count) {
             //console.log(count);
