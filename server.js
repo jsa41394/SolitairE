@@ -67,12 +67,13 @@ app.get('/', function (req, res) {
     if (db) {
         var data = req.query['data'];
         var rand = req.query['rand'];
+        var date = Date.now();
         var col = db.collection('counts');
         var test = "123";
         // Create a document with request IP and current time of request
-        col.insert({ ip: req.ip, date: Date.now(), data: data, rand: rand });
+        col.insert({ ip: req.ip, date: date, data: data, rand: rand });
 
-        //test = date; 
+        test = date;
 
         //collection.findOne({ _id: data }, function (err, document) {
             //test = document;
