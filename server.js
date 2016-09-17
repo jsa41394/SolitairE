@@ -85,7 +85,7 @@ app.get('/', function (req, res) {
         //var d = collection.findOne({ id: rand }, function (err, item) { });
         //test = d;
         
-        col.find({ id: rand }).toArray(function (err, results) {
+        col.find().toArray(function (err, results) {
             test = Object.keys(results.id);
             // send HTML file populated with quotes here
         })
