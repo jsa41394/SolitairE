@@ -71,7 +71,7 @@ app.get('/', function (req, res) {
         // Create a document with request IP and current time of request
         //col.insert({ ip: req.ip, date: Date.now(), data: data, rand: rand });
 
-        /*col.findAndModify(
+        col.findAndModify(
           {hello: 'world'}, // query
           [],  // sort order
           {$set: {data: data}}, // replacement, replaces only the field "hi"
@@ -83,7 +83,7 @@ app.get('/', function (req, res) {
                   console.dir(object);
               }
           });
-        });*/
+        });
 
         col.count(function (err, count) {
             res.render('index.html', {
