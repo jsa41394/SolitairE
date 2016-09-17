@@ -73,6 +73,8 @@ app.get('/', function (req, res) {
 
         // Create a document with request IP and current time of request
         //col.insert({ id: rand, plot: data, ip: req.ip, date: date });
+
+        test = "'" + data + "'";
         
         // update data if request param found
         if (data != "") {
