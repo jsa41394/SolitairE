@@ -72,7 +72,7 @@ app.get('/', function (req, res) {
         // Create a document with request IP and current time of request
         col.insert({ ip: req.ip, date: Date.now(), data: data, rand: rand });
 
-        test = date;
+        test = date; 
 
         //collection.findOne({ _id: data }, function (err, document) {
             //test = document;
