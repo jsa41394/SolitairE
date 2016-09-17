@@ -91,9 +91,19 @@ app.get('/', function (req, res) {
             data = latestDoc.plot;
             rand = latestDoc.id;
             test += "-" + latestDoc.plot;
+
+            col.count(function (err, count) {
+                //console.log(count);
+                res.render('index.html', {
+                    pageCountMessage: count + 8619,
+                    dbInfo: dbDetails,
+                    data: data,
+                    test: test
+                });
+            });
         })
         
-
+        /*
         col.count(function (err, count) {
             //console.log(count);
             res.render('index.html', {
@@ -103,6 +113,7 @@ app.get('/', function (req, res) {
                 test: test
             });
         });
+        */
     } else {
         res.render('index.html', { pageCountMessage: null });
     }
