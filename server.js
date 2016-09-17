@@ -74,7 +74,7 @@ app.get('/', function (req, res) {
         col.insert({ _id: rand, data: data, ip: req.ip, date: date });
 
         var cursor = col.find({}); // _id: rand
-        test = cursor[1];
+        test = cursor.hasNext();
         //col.find({ rand: rand }, function (err, record) {
             //test = "Record added for " + record.rand;
         //});
