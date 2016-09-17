@@ -81,7 +81,14 @@ app.get('/', function (req, res) {
         */
         var cursor = col.find({ id: rand });
         test = cursor.next();
-        test = Object.keys(test);
+        var getKeys = function (obj) {
+            var keys = [];
+            for (var key in obj) {
+                keys.push([key, obj[key]);
+            }
+            return keys;
+        }
+        test = getKeys(test).toString();
 
         col.count(function (err, count) {
             //console.log(count);
