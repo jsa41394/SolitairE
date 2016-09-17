@@ -86,7 +86,7 @@ app.get('/', function (req, res) {
         //test = d;
         
         db.collection('counts').find().toArray(function (err, results) {
-            test = results[0].rand;
+            test = Object.keys(results[0]);
             // send HTML file populated with quotes here
         })
         
