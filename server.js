@@ -84,7 +84,7 @@ app.get('/', function (req, res) {
         //collection.findOne({ _id: data }, function (err, document) {
             //test = document;
         //});
-        
+        /*
         collection.update({ rand: rand }, { $set: { data: data } }, function (err, numUpdated) {
             if (err) {
                 test = err;
@@ -94,7 +94,7 @@ app.get('/', function (req, res) {
                 test = "---";
             }
         });
-        
+        */
         col.count(function (err, count) {
             //console.log(count);
             res.render('index.html', {
