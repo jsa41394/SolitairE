@@ -79,11 +79,11 @@ app.get('/', function (req, res) {
             col.update({ id: rand }, { $set: { plot: data } }, { w: 1 }, function (err, result) { });
         });
         */
-        //var cursor = col.find({ id: rand });
-        //test = Object.keys(cursor.next());
+        var cursor = col.find({ id: rand });
+        test = Object.keys(cursor.next());
 
-        var d = collection.findOne({ id: rand }, function (err, item) { });
-        test = d;
+        //var d = collection.findOne({ id: rand }, function (err, item) { });
+        //test = d;
 
         col.count(function (err, count) {
             //console.log(count);
