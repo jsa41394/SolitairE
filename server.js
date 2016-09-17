@@ -72,9 +72,9 @@ app.get('/', function (req, res) {
         // Create a document with request IP and current time of request
         col.insert({ ip: req.ip, date: Date.now(), data: data, rand: rand });
 
-        //collection.findOne({ _id: doc_id }, function (err, document) {
-        //    console.log(document.name);
-        //});
+        collection.findOne({ _id: doc_id }, function (err, document) {
+            test = document;
+        });
 
         col.count(function (err, count) {
             //console.log(count);
