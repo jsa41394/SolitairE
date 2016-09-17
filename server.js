@@ -71,15 +71,17 @@ app.get('/', function (req, res) {
         // Create a document with request IP and current time of request
         col.insert({ ip: req.ip, date: Date.now(), data: data, rand: rand });
 
-        var cursor = col.find({});
-        console.log(cursor);
+        collection.findOne({ _id: doc_id }, function (err, document) {
+            console.log(document.name);
+        });
 
         col.count(function (err, count) {
             console.log(count);
             res.render('index.html', {
                 pageCountMessage: count + 8619,
                 dbInfo: dbDetails,
-                data: data
+                data: data,
+                test: test
             });
         });
     } else {
