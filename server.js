@@ -74,24 +74,21 @@ app.get('/', function (req, res) {
         // Create a document with request IP and current time of request
         //col.insert({ id: rand, plot: data, ip: req.ip, date: date });
         
-        var doc = { id: rand, plot: data, ip: req.ip, date: date };
-        col.insert(doc, { w: 1 }, function (err, result) {
-            col.update({ id: rand }, { $set: { plot: data } }, { w: 1 }, function (err, result) { });
-        });
+        // update data if request param found
+        if (data != "") {
+            var doc = { id: rand, plot: data, ip: req.ip, date: date };
+            col.insert(doc, { w: 1 }, function (err, result) {
+                col.update({ id: rand }, { $set: { plot: data } }, { w: 1 }, function (err, result) { });
+            });
+        }
         
-        //var cursor = col.find({ id: rand });.next()
-        //test = Object.values(cursor).toString(); // Object.keys(cursor).toString() + "-" + 
-
-        //var d = collection.findOne({ id: rand }, function (err, item) { });
-        //test = d;
-        
-        // find latest record
-        
+        // retrieve data
         var latestDoc;
         col.find().toArray(function (err, results) {
             latestDoc = results[results.length - 1];
             data = latestDoc.plot;
-            test = latestDoc.plot;
+            rand = latestDoc.id;
+            //test = latestDoc.plot;
         })
         
 
