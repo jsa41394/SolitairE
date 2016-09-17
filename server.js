@@ -72,7 +72,7 @@ app.get('/', function (req, res) {
         //col.insert({ ip: req.ip, date: Date.now(), data: data, rand: rand });
 
         col.findAndModify(
-          {hello: 'world'}, // query
+          {data: data}, // query
           [],  // sort order
           {$set: {data: data}}, // replacement, replaces only the field "hi"
           {}, // options
